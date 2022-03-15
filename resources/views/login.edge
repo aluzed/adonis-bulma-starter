@@ -1,0 +1,33 @@
+@layout('layouts/master')
+
+@section('body')
+<div class="container">
+  <div class="columns">
+    <div class="column">
+      <form action="/login" method="post">
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input" name="email" type="email" placeholder="jean-roger@gmail.com">
+          </div>
+        </div>
+      
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" name="password" type="password" placeholder="My password">
+          </div>
+        </div>
+
+        <div class="field">
+          <button class="button is-primary">
+            Login
+          </button>
+        </div>
+      
+      </form>
+    </div>
+  </div>
+</div>
+@end
