@@ -1,0 +1,60 @@
+@layout('layouts/master')
+
+@section('body')
+<div class="container">
+  <div class="columns">
+    <div class="column">
+      <div class="card mt-6">
+        <header class="card-header">
+          <p class="card-header-title">
+            Register
+          </p>
+        </header>
+        <div class="card-content">
+          <form action="{{ route('register.post') }}" method="post">
+
+            <div class="field">
+              <label class="label">Username</label>
+              <div class="control">
+                <input class="input" name="username" type="text" placeholder="Jean-Roger" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input class="input" name="email" type="email" placeholder="jean-roger@gmail.com" required>
+              </div>
+            </div>
+          
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input class="input" name="password" type="password" placeholder="My password" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Password verification</label>
+              <div class="control">
+                <input class="input" name="password_verification" type="password" placeholder="My password" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <button class="button is-primary">
+                Register
+              </button>
+
+              <a href="/login" class="button is-warning">
+                Login
+              </a>
+            </div>
+          
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@end

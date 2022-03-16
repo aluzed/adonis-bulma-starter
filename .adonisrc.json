@@ -13,10 +13,10 @@
     "Database": "database",
     "Contracts": "contracts"
   },
-  "preloads": [
-    "./start/routes",
-    "./start/kernel"
-  ],
+  "preloads": ["./start/routes", "./start/kernel"],
+  "namespaces": {
+    "httpControllers": "App/Controllers"
+  },
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
@@ -37,7 +37,5 @@
       "reloadServer": false
     }
   ],
-  "aceProviders": [
-    "@adonisjs/repl"
-  ]
+  "aceProviders": ["@adonisjs/repl"]
 }
