@@ -19,8 +19,13 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import { LastPictures } from 'App/Services/PictureServices'
 import './routes/auth'
+import './routes/pictures'
 
 Route.get('/', async ({ view }) => {
-  return view.render('welcome')
+  const pictures = await LastPictures()
+  return view.render('welcome', {
+    pictures,
+  })
 })

@@ -8,7 +8,7 @@ export default class Pictures extends BaseSchema {
       table.increments('id')
       table.string('filename').notNullable()
       table.string('mime_type').notNullable()
-      table.double('owner_id').notNullable()
+      table.integer('user_id').unsigned().references('users.id').onDelete('CASCADE')
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */

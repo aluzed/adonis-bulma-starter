@@ -1,0 +1,39 @@
+@layout('layouts/master')
+
+@section('body')
+<div class="container">
+  <div class="columns">
+    <div class="column">
+      <div class="card mt-6">
+        <header class="card-header">
+          <p class="card-header-title">
+            Upload picture
+          </p>
+        </header>
+        <div class="card-content">
+          <form action="{{ route('pictures.create') }}" method="post" enctype="multipart/form-data">
+
+            <div class="field">
+              <label class="label">Picture</label>
+              <div class="control">
+                <input class="input" name="picture" type="file">
+              </div>
+            </div>
+          
+            <div class="field">
+              <button class="button is-primary">
+                Uploader
+              </button>
+
+              <a href="/" class="button is-warning">
+                Annuler
+              </a>
+            </div>
+          
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@end

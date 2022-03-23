@@ -1,6 +1,9 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
+import * as path from 'path'
+
+const UPLOADS_PATH = path.resolve(__dirname, '../../uploads')
 
 export default class Picture extends BaseModel {
   public static table = 'pictures'
@@ -12,16 +15,21 @@ export default class Picture extends BaseModel {
   public filename: string
 
   @column()
-  public mime_type: string
+  public mimeType: string
 
-  @hasOne(() => User, {
-    foreignKey: 'owner_id',
-  })
-  public user: HasOne<typeof User>
+  @column()
+  public userId: number
+
+  @belongsTo(() => User)
+  public user: BelongsTo<typeof User>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  public get fullpath() {
+    return `${UPLOADS_PATH}/${this.filename}`
+  }
 }
